@@ -1,0 +1,173 @@
+<script>
+    // Aluna: Maria Clara Z.Marques-2º ano I- Nª: 24
+    //Exemplo 01)
+    var carros = [ //Aqui foi criado uma array com informações sobre alguns carros
+        { id: 1, modelo: 'Corsa', marca: 'Chevrolet', preco: 45000, createdAt: 1534506085621 }, //1º
+        { id: 2, modelo: 'Punto', marca: 'Fiat', preco: 120000, createdAt: 1534506085621 } //Aqui 
+        //2º
+    ]
+
+    var total = 0 //sriação de uma variavel com valor inicial igual a 0
+    
+    for(var i = 0; i < carros.length; i++) { //Estrutura de repetição FOR
+        total += carros[i].preco //A variavel total recebe o valor dos carros e soma(+) com o valor q tinha anteriormente
+        console.log(total) // mostrar no console
+    }
+
+    for(const carro of carros) {   // estrutura do for of
+        total += carro.preco       //A variavel total recebe o valor dos carros e soma(+) com o valor que tinha antes
+        console.log(total)         // Mostrar no console
+    }
+
+    for(const i in carros) {        // estrutura do for in
+        total += carros[i].preco    //A variavel total recebe o valor dos carros e soma com o valor que tinha antes
+        console.log(total)           // mostrar no console
+    }
+
+    const cores = [ 'Verde', 'Amarelo', 'Azul', 'Branco' ] // array com nome de cores
+
+    for (const index in cores) {     //for in const index é para numerar as propriedades da array e dizer qual pegar em logo depois
+        console.log(index, cores[index])   //mostrar no console o valor do index e a cor referente ao valor
+    }
+
+    const pessoa = {         //Objeto pessoa 
+        nome: 'Bruno',       //Nome da pessoa
+        idade: 25            //Idade
+    }
+
+    for (const index in pessoa) {  //for in const index é para numerar as propriedades da array e dizer qual pegar depois
+        console.log(`${index} - ${pessoa[index]}`)  //mostrar no console o nome da sua propriedade e seu valor 
+    }
+
+    const produtos = [  // Array que recebe alguns produtos 
+        { descricao: 'Resma Ofício', valor: 11.50, quantidade: 10 },  //1º
+        { descricao: 'Lapis preto', valor: 0.50, quantidade: 3 },     //Sseg
+        { descricao: 'Transferidor plastico', valor: 1.20, quantidade: 4 }  //3º
+    ]
+
+    let total2 = 0    //Criação de variavel iniciando em 0
+
+    for (const index in produtos) {      //Extrutura for in
+        const { valor, quantidade } = produtos[index]  //Atribui o valor e a quantidade aos parodutos 1, 2, 3...
+
+        total2 += valor * quantidade  //Multiplica(*) o valor do produto pela sua quantidade
+    }
+
+    console.log(total2) // mostra no console
+
+    const numeros = [ 10, 11, 22, 23, 34, 45, 66, 17, 28, 93, 101 ] //Pbejto Numeros
+
+    for (const numero of numeros) {  //Estrutura for of que tem como função passar por todos os valores do objeto numeros
+        console.log(numero)  // mostrar no console
+    }
+
+    const carros2 = [                                    //Criação de uma array carros
+        { id: 1, modelo: 'Corsa', marca: 'Chevrolet', preco: 18000 },    //Primeiro
+        { id: 2, modelo: 'Punto', marca: 'Fiat', preco: 12000 },         //Segundo
+        { id: 3, modelo: 'Gol', marca: 'Volkswagen', preco: 14000 },     //Terceiro
+        { id: 4, modelo: 'Saveiro', marca: 'Volkswagen', preco: 20000 }, //Quarto
+        { id: 5, modelo: 'Uno', marca: 'Fiat', preco: 12000 }            //Quinto
+    ]
+
+    let total3 = 0           //Variavel q recebera a soma dos valores dos carros da array
+
+    for (const carro of carros2) {     //Extrutura for of
+        total3 += carro.preco  //Adiciona os preços dos carros a variavel total sempre adicionando ao numero anterior
+    }
+
+    // converte o número para o padrão monetário
+    const valorFinal = Number(total3).toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    })
+
+    console.log(valorFinal) // R$ 76,000.00
+
+    const artigo = document.querySelectorAll('article > p')  //Percorrendo uma lista de elementos 
+
+    for (const paragrafo of artigo) {
+        paragrafo.classList.add("read")  //Adicionando classe read para todos os elementos percorridos :)
+    }
+
+    //PARTE 2
+
+    //Valor retornado: Verde Amarelo Azul Branco
+    
+    cores2 = ["Verde", "Amarelo", "Azul", "Branco"]; //Criação de um array cores
+
+    function imprimir(item) {  //Uma função com um parametro item
+        console.log(item);     //Aparecer no console valor do parametro
+    }
+
+    cores2.forEach(imprimir);  //O método forEach() executará uma função para cada elemento presente em um array
+
+    //Valor retornado: 0 2 4 6 8 10 12 14 16 18 20
+    numeros2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];  //Criação de um array numeros
+
+    function tabuadaDe2(item) {   //Uma função com um parametro item
+        console.log(item*2);      //Aparecer no console o valor do parametro vezes 2
+    }
+
+    numeros2.forEach(tabuadaDe2);  //O método forEach() executará uma função para cada elemento presente em um array
+
+    //Valor retornado: 55 
+    total = 0;                    //Criação de uma variavel iniciando em 0
+
+    function somar(item) {       //Uma função com um parametro item 
+        total += item;           //a variavel total adiciona ao seu valor atual o valor do parametro item
+        console.log(total);      //Aparecer no console  
+    }
+
+    numeros2.forEach(somar);    //O método forEach() executará uma função para cada elemento presente em um array
+    console.log(total);         //aparecer no console
+
+    //Array retornado: ["Fiat", "Ford"]
+    marcas = ["Fiat", "Chevrolet", "Ford", "Volkswagen"]   //criação de uma array marcas
+    marcasIniciadasComF = [];                              //Criação de um array vazio
+    novoIndice = 0;                                        //Criação de uma variavel com valor inicial 0
+ 
+    function selecionarMarcas(item, indice) {                   //Uma função com um parametro item e indice
+        if (marcas[indice].indexOf("F") == 0) {   //Uma condição q verifica se os elementos do array começa com a letra F 
+            marcasIniciadasComF[novoIndice] = marcas[indice];  //A array antes vazia recebe o elemento da array marcas
+            novoIndice++;                             //Incremento novoIndice
+        }
+    }
+
+    marcas.forEach(selecionarMarcas);    //O método forEach() executará uma função para cada elemento presente em um array
+    console.log(marcasIniciadasComF);    //aparecer no console
+
+    //Array retornado: ["ALBERTO", "ALEX", "SANDRO", "ROBERTA"]
+    nomes = ["Alberto", "Alex", "Sandro", "Roberta"];   //Criação de um array nomes
+
+    function converterParaMaisculo(item, indice) {      //Uma função com um parametro item e indice
+    nomes[indice] = nomes[indice].toUpperCase();//A array nomes vai receber os elementos do array soq MAIUSCULOS ".toUpperCase()"
+    }
+
+    nomes.forEach(converterParaMaisculo);    //O método forEach() executará uma função para cada elemento presente em um array
+    console.log(nomes);       //aparecer no console                
+
+    //Valor retornado: Ana Roberta
+    nomes = ["Alberto", "Alex", "Sandro", "Ana Roberta"];   //Criação de um array nomes
+    tamanhoNome = 0;                      //Criação de uma variavel com valor inicial 0
+    nome = "";                            //Criação de uma variavel com valor inicial vazio ""                           
+
+    function maiorNome(item, indice) {              //Uma função com um parametro item e indice
+        if (nomes[indice].length > tamanhoNome) { //verifica o tamanho do elemento do array e compara com a variavel tamanhoNome
+            nome = nomes[indice];                 //variavel nome recebe o elemento da array
+            tamanhoNome = nomes[indice].length;   //variavel recebe o tamanho do elemento da array
+        }
+    }
+
+    nomes.forEach(maiorNome);     //O método forEach() executará uma função para cada elemento presente em um array
+    console.log(nome);            //aparecer no console
+
+    var numeros3 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var total = 0;
+
+    function somar2(item, indice) {
+        total += item;
+        console.log("[índice " + indice + "]= " + total + " -> ");
+    }
+
+    numeros3.forEach(somar2);
+</script>
